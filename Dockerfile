@@ -1,7 +1,7 @@
-FROM python:3.12-slim as build
+FROM python:3.13-slim as build
 COPY . /occameracontrol
 
-FROM python:3.12-slim
+FROM python:3.13-slim
 EXPOSE 8000
 RUN --mount=type=bind,from=build,source=/occameracontrol,target=/occameracontrol \
     --mount=type=tmpfs,destination=/tmp \
